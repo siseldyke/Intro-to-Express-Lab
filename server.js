@@ -40,6 +40,7 @@ app.get('/greetings', (req, res) =>{
 app.get('/roll', (req, res) =>{
     let number = req.query.number
     let num = Number(number)
+    // console.log(num)
     if(isNaN(num)){
         return res.send('Please specify a number')
     }
@@ -67,23 +68,53 @@ app.get('/guitars/:index', (req, res) =>{
      })
     
 })
-
-app.get('/shoes/' , (req, res) =>{
-let minPrice = 15
-let maxPrice = 1000
-let types = ['sandal' , 'sneaker', 'boot', 'heel']
+app.get('/shoes' , (req, res) => {
+    res.send(shoes)
 })
 
 
 
 
+app.get('/shoes/minPrice/:price' , (req, res) =>{
+    let price = req.params.price
+    let minPrice = shoes.filter((shoe) => shoe.price > price )
+//    if (price)
+    console.log(minPrice)
+    res.send(minPrice)
+})
+
+app.get('/shoes/maxPrice/:price' , (req, res) =>{
+    let price = req.params.price
+    let maxPrice = shoes.filter((shoe) => shoe.price < price)
+    res.send(maxPrice)
+})
+
+app.get('/shoes/:type' , (req, res) =>{
+    let type = req.params.type
+    let allTypes = shoes.filter((shoe) => shoe.type === type)
+    console.log(type)
+    res.send(allTypes)
+})
+    // console.log(shoePrice)
+    // let minPrice = `${req.query[index].price}`
+    // let maxPrice = `${req.query[index].price}`
+    // let types = `${req.query[index].type}`
+    // let shoePrice = req.query[index].price
+
+
+    
+    // res.send(minPrice)
+   
+    // console.log(types)
+
+        // if(minPrice = shoes[index].price < )
+        // console.log(shoes[index].price)
+    
 
 
 
 
-// app.get('/greetings/:id', (req, res) =>{
-//     console.log(`message id of${req.params.id}`)
-//     res.send({
-//         msg: `id of ${req.params.id}`
-//     })
-// })
+
+
+
+
