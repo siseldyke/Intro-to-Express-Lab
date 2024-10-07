@@ -95,6 +95,13 @@ app.get('/shoes/:type' , (req, res) =>{
     console.log(type)
     res.send(allTypes)
 })
+
+//notes!
+// used Mdn webdocs for things like the filter, with guidance from tom
+// had some help from googling the math for random numbers via mdn
+//as well as asking chat gpt for functions to do with that
+//the string to call the name i had references from class with jeremy showing how that works
+
     // console.log(shoePrice)
     // let minPrice = `${req.query[index].price}`
     // let maxPrice = `${req.query[index].price}`
